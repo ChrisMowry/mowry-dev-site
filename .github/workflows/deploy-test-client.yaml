@@ -1,21 +1,16 @@
-name: Deploy to Test
-
+name: Deploy Test Client
 on:
   push:
     branches: [ "test" ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./client/mowry-dev-client
-
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
-
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
